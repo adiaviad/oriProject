@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir:"ltr" lang="en">
+<head runat="server">
+    <title>Ori's Monkies</title>
+    
+    
+    <style>
+        body {
+            background-image: url(http://localhost:52522/imgs/קרג.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" method="post" onsubmit="return CheckForm()" onreset="return Clear()">
+    <div>
+
+        <% if (Session["user"]=="אורח")
+            { %>
+        <center>
+        <table border="0">
+    <td>
+        <td><h1 style ="color: dimgrey; font-family: Roboto"><a style="text-decoration:none" href="home.aspx"> Home Page</a> </h1></td>
+        <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="gallery.aspx"> Gallery</a></h1></td>
+        <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="about.aspx">About</a></h1> </td>
+        <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="links.aspx">Links</a></h1> </td>
+        <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="login.aspx">Login</a></h1> </td>
+        <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="Register.aspx">Register</a> </h1></td>
+ </td>
+        </table>
+        </center>
+         <% }
+        else
+            {%>
+        <center>
+    <table border="0">
+        
+     <tr>
+    <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="home.aspx"> Home Page</a> </h1></td>
+    <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="gallery.aspx"> Gallery</a></h1></td>
+    <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="about.aspx">About</a></h1> </td>
+     <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="links.aspx">Links</a></h1> </td>
+     <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="game.aspx">Game</a></h1> </td>
+    <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="friends.aspx">Friends</a></h1> </td>
+    <td><h1 style ="color:dimgrey;font-family:Roboto"><a style="text-decoration:none" href="Logout.aspx">Logout</a></h1> </td>
+ </tr>
+           
+        </table>
+    </center>
+        <%}
+     %>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
